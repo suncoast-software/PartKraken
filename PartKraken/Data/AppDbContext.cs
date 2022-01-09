@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using PartKraken.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +10,10 @@ namespace PartKraken.Data
 {
     internal class AppDbContext: DbContext
     {
+        public DbSet<Part> Parts { get; set; }
+        public AppDbContext(DbContextOptions options) : base(options)
+        {
+
+        }
     }
 }
