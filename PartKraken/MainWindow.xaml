@@ -37,7 +37,7 @@
             </Border.Effect>
 
         </Border>
-        <!--// HEADER //-->
+        <!--// HEADER \\-->
         <Border Grid.Row="0"
                 Grid.Column="0"
                 Grid.RowSpan="2"
@@ -87,6 +87,37 @@
                 </StackPanel>
             </Grid>
         </Border>
-        <!--// END HEADER //-->
+        <!--// END HEADER \\-->
+        
+        <!--// NAVIGATION \\-->
+        <StackPanel Grid.Row="2"
+                    Grid.Column="1"
+                    Orientation="Vertical"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Margin="0 10">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="HOME"
+                           FontSize="18"
+                           FontWeight="Bold"
+                           Foreground="{StaticResource PrimaryDarkBrush400}"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Margin="10 0"/>
+                <Button Height="40"
+                    Width="80"
+                    Background="{x:Null}"
+                    BorderBrush="{x:Null}">
+                    <md:PackIcon Kind="Home"
+                                 Width="40"
+                                 Height="40"
+                                 Foreground="{StaticResource PrimaryDarkBrush500}"
+                                 VerticalAlignment="Center"
+                                 HorizontalAlignment="Right"/>
+                </Button>
+            </StackPanel>
+           
+        </StackPanel>
+        <!--// END NAVIGATION \\-->
     </Grid>
 </Window>
