@@ -11,7 +11,7 @@ namespace PartKraken.Data.Factories
 {
     internal class AppDbContextFactory : IDesignTimeDbContextFactory<AppDbContext>
     {
-        public AppDbContext CreateDbContext(string[] args)
+        public AppDbContext CreateDbContext(string[] args = null)
         {
             var dataService = new DataService();
             var conString = dataService.GetConnectionString();

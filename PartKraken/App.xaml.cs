@@ -1,7 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using PartKraken.Data.Factories;
+using PartKraken.Interfaces;
 using PartKraken.Navigation;
+using PartKraken.Services;
 using PartKraken.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -24,6 +26,7 @@ namespace PartKraken
             {
                 services.AddSingleton<AppViewModel>();
                 services.AddTransient<AppDbContextFactory>();
+                services.AddSingleton<IDataService, DataService>();
                 services.AddSingleton<Navigator>();
                 services.AddSingleton<MainWindow>(s => new MainWindow()
                 {
