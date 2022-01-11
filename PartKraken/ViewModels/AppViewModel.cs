@@ -1,5 +1,6 @@
 ﻿using PartKraken.Data.Factories;
 using PartKraken.Interfaces;
+using PartKraken.Models;
 using PartKraken.Navigation;
 using PartKraken.Navigation.Commands;
 using System;
@@ -26,10 +27,13 @@ namespace PartKraken.ViewModels
             _dbFactory = dbFactory;
             _navigator = navigator;
             _dataService = dataService;
+
             _navigator.CurrentViewModelChanged += OnCurrentViewModelChanged;
+
             ExitAppCommand = new RelayCommand(ExitApp);
-           // NavigateHomeCommand = new NavigateCommand<HomeViewModel>(_navigator, () => new HomeViewModel(_dbFactory, _navigator));
-            NavigateDashboardCommand = new NavigateCommand<DashboardViewModel>(_navigator, () => new DashboardViewModel(_dbFactory, _navigator, _dataService));
+            List<List<Part>> parts = _dataService.LoadPartList(_dbFactory);
+         
+            NavigateDashboardCommand = new NavigateCommand<DashboardViewModel>(_navigator, () => new DashboardViewModel(_dbFactory, _navigator, parts));
         }
 
         private void ExitApp()

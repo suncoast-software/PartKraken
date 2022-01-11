@@ -44,12 +44,12 @@ namespace PartKraken.ViewModels
             set => OnPropertyChanged(ref _parts, value);
         }
 
-        public DashboardViewModel(AppDbContextFactory dbFactory, Navigator? navigator, IDataService dataService)
+        public DashboardViewModel(AppDbContextFactory dbFactory, Navigator? navigator, List<List<Part>> parts)
         {
             _navigator = navigator;
             _dbFactory = dbFactory;
-            _dataService = dataService;
-            Parts = _dataService.LoadPartList(dbFactory);
+
+            Parts = parts;
         }
 
     }

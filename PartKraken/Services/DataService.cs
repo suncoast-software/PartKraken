@@ -39,6 +39,7 @@ namespace PartKraken.Services
             Parts.Add(CubList);
             Parts.Add(OreList);
             Parts.Add(SteList);
+
             return Parts;
         }
     }
