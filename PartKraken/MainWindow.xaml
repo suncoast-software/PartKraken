@@ -181,6 +181,7 @@
             <!--// END SEARCH \\-->
 
             <!--// CONTENT \\-->
+            
             <ContentControl Grid.Row="1"
                             VerticalAlignment="Top"
                             HorizontalAlignment="Left"

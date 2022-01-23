@@ -1,4 +1,5 @@
-﻿using PartKraken.ViewModels;
+﻿using PartKraken.Interfaces;
+using PartKraken.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +26,11 @@ namespace PartKraken.Navigation
         private void OnCurrentViewModelChanged()
         {
             CurrentViewModelChanged?.Invoke();
+        }
+
+        public void Navigate()
+        {
+            throw new NotImplementedException();
         }
     }
 }
