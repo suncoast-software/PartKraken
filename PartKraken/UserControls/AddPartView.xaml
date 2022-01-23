@@ -53,11 +53,14 @@
                         Grid.Row="3"
                         Grid.Column="3">
                 <Button Style="{StaticResource MaterialDesignFlatDarkButton}"
-                        Content="CANCEL"/>
+                        Content="CANCEL"
+                        Command="{Binding CloseCommand}"/>
                 <Button Style="{StaticResource MaterialDesignFlatDarkButton}"
-                        Content="RESET"/>
+                        Content="RESET"
+                        Command="{Binding ResetCommand}"/>
                 <Button Style="{StaticResource MaterialDesignFlatDarkButton}"
-                        Content="SAVE"/>
+                        Content="SAVE"
+                        Command="{Binding SaveCommand}"/>
                 
             </StackPanel>
         </Grid>

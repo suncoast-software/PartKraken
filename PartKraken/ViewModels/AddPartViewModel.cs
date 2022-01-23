@@ -1,4 +1,5 @@
 ﻿using PartKraken.Data.Factories;
+using PartKraken.Navigation;
 using PartKraken.Navigation.Commands;
 using System;
 using System.Collections.Generic;
@@ -9,20 +10,43 @@ using System.Windows.Input;
 
 namespace PartKraken.ViewModels
 {
-    internal class AddPartViewModel: BaseViewModel, IDisposable
+    internal class AddPartViewModel: BaseViewModel
     {
         private readonly AppDbContextFactory _dbFactory;
+        private Navigator? _navigator;
         public ICommand CloseCommand { get; set; }
 
-        public AddPartViewModel(AppDbContextFactory dbFactory)
+        private string _partName;
+        public string Partname
         {
-            _dbFactory = dbFactory;
-            CloseCommand = new RelayCommand(Dispose);
+            get => _partName;
+            set => OnPropertyChanged(ref _partName, value);
         }
 
-        public void Dispose()
+        private string _partnumber;
+        public string Partnumber
         {
-            this.Dispose();
+            get => _partnumber;
+            set => OnPropertyChanged(ref _partnumber, value);
+        }
+
+        private string _manufactorer;
+        public string Manufacturer
+        {
+            get => _manufactorer;
+            set => OnPropertyChanged(ref _manufactorer, value);
+        }
+
+        public AddPartViewModel(AppDbContextFactory dbFactory, Navigator navigator)
+        {
+            _dbFactory = dbFactory;
+            _navigator = navigator;
+            CloseCommand = new RelayCommand(Close);
+        }
+
+        private void Close()
+        {
+           
         }
     }
 }

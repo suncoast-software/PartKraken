@@ -7,6 +7,7 @@
         xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:vm="clr-namespace:PartKraken.ViewModels"
         xmlns:v="clr-namespace:PartKraken.Views"
+        xmlns:uc="clr-namespace:PartKraken.UserControls"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
@@ -130,14 +131,28 @@
                     Width="60"
                     Background="{x:Null}"
                     BorderBrush="{x:Null}"
-                    Margin="0 10">
+                    Margin="0 10"
+                    Command="{Binding NavigateAddPartCommand}">
+                <md:PackIcon Kind="AddBox"
+                                 Width="30"
+                                 Height="40"
+                                 Foreground="{StaticResource PrimaryDarkBrush500}"
+                                 VerticalAlignment="Center"
+                                 HorizontalAlignment="Right"/>
+            </Button>
+            <Button Height="40"
+                    Width="60"
+                    Background="{x:Null}"
+                    BorderBrush="{x:Null}"
+                    Margin="0 10"
+                    Command="">
                 <md:PackIcon Kind="Settings"
                                  Width="30"
                                  Height="40"
                                  Foreground="{StaticResource PrimaryDarkBrush500}"
                                  VerticalAlignment="Center"
                                  HorizontalAlignment="Right"/>
-                </Button>
+            </Button>
           
         </StackPanel>
         <!--// END NAVIGATION \\-->
@@ -192,6 +207,9 @@
                     </DataTemplate>
                     <DataTemplate DataType="{x:Type vm:DashboardViewModel}">
                         <v:DashboardView/>
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type vm:AddPartViewModel}">
+                        <uc:AddPartView/>
                     </DataTemplate>
                 </ContentControl.Resources>
             </ContentControl>

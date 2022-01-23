@@ -22,6 +22,8 @@ namespace PartKraken.ViewModels
         public ICommand ExitAppCommand { get; }
         public ICommand NavigateHomeCommand { get; }
         public ICommand NavigateDashboardCommand { get; }
+        public ICommand NavigateAddPartCommand { get; }
+        public ICommand SearchCommand { get; }
         public AppViewModel(AppDbContextFactory dbFactory, Navigator? navigator, IDataService dataService)
         {
             _dbFactory = dbFactory;
@@ -31,9 +33,16 @@ namespace PartKraken.ViewModels
             _navigator.CurrentViewModelChanged += OnCurrentViewModelChanged;
 
             ExitAppCommand = new RelayCommand(ExitApp);
+            SearchCommand = new RelayCommand(Search);
             List<List<Part>> parts = _dataService.LoadPartList(_dbFactory);
          
             NavigateDashboardCommand = new NavigateCommand<DashboardViewModel>(_navigator, () => new DashboardViewModel(_dbFactory, _navigator, parts));
+            NavigateAddPartCommand = new NavigateCommand<AddPartViewModel>(_navigator, () => new AddPartViewModel(_dbFactory, navigator));
+        }
+
+        private void Search()
+        {
+            
         }
 
         private void ExitApp()
